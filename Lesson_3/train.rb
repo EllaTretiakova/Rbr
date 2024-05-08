@@ -17,7 +17,8 @@ class Train
 	attr_accessor :van
 	attr_accessor :speed
 	attr_reader :route
-
+	attr_reader :current_station
+	
 	def initialize (type, number, van)
 		@number = number
 		@type = type
