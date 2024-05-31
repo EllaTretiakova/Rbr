@@ -17,47 +17,56 @@ class Train
 	attr_accessor :van
 	attr_accessor :speed
 	attr_reader :route
-	attr_reader :current_station
-	
+
 	def initialize (type, number, van)
-		@number = number
-		@type = type
-		@van = van
-		@speed = 0
+	  @number = number
+	  @type = type
+	  @van = van
+	  @speed = 0
 	end
+
 	def speed_speed
-		@speed += 10 
+	  @speed += 10 
     end
+
 	def new_van
-		@van += 1 if @speed == 0
+	  @van += 1 if @speed == 0
 	end
+
 	def delete_van
-		@van -=1 if @speed == 0
+	  @van -=1 if @speed == 0
 	end
+
 	def train_route(route)
- 		@station = route.station.first
- 		@route = route
+ 	  @station = route.station.first   #ставлю на первую станцию маршрута
+ 	  @route = route                   #принимаю маршрут
 	end
+
 	def stop
-		@speed = 0 if @speed > 0
+	  @speed = 0 if @speed > 0
 	end 
+
  	def moving_forward
-    	moving_to(next_station)
+      moving_to(next_station)
  	end
+
   	def moving_back
-    	moving_to(previous_station)
+      moving_to(previous_station)
   	end
+
  	def next_station
-    	@route.next_station(current_station)
+      @route.next_station(current_station)
   	end
+
   	def previous_station
-    	@route.previous_station(current_station)
+      @route.previous_station(current_station)
   	end
+
   	def moving_to(station)
-    	@current_station&.send(self)
-    	@current_station = station
-    	@current_station.take(self)
-   		true
+      @current_station&.send(self)
+      @current_station = station
+      @current_station.take(self)
+   	  true
   	end
 end
 

@@ -10,18 +10,21 @@
 class Station
 	attr_reader :name
 	attr_reader :trains
+
 	def initialize (name, trains)
-		@name = name 
-		@trains = []
+	  @name = name 
+	  @trains = []
 	end
 
 	def take (train)
-		self.trains << train
+	  self.trains << train
 	end
+
 	def send (train)
-		self.trains.delete(train)
+	  self.trains.delete(train)
 	end
+
 	def type (type)
-		self.trains.select {|train| train.type == type}.count
+	  self.trains.select {|train| train.type == type}.count
 	end
 end

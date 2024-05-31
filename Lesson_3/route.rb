@@ -8,18 +8,22 @@ class Route
 	attr_reader :stations
 
 	def initiliaze (start, finish)
-		@stations = [start, finish]
+	  @stations = [start, finish]
 	end
+
 	def add_station (station, place)
-		@stations.insert(place, station)
+	  @stations.insert(place, station)
 	end
+
 	def delete_station (station)
-		@stations.delete (station)
+	  @stations.delete (station)
 	end
+
 	def next_station
-  		@station = route.stations[@route.stations.index(station) + 1]
+  	  @station = route.stations[@route.stations.index(station) + 1]
     end
+
   	def previous_station
-     	@stations = route.stations[@route.stations.index(station) - 1]
-  end
+      @stations = route.stations[@route.stations.index(station) - 1]
+    end
 end
