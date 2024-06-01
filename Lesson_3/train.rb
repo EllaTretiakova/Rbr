@@ -47,25 +47,25 @@ class Train
 	end 
 
  	def moving_forward
-      moving_to(next_station)
+          moving_to(next_station)
  	end
 
   	def moving_back
-      moving_to(previous_station)
+          moving_to(previous_station)
   	end
 
  	def next_station
-      @route.next_station(current_station)
+          @route.next_station(current_station)
   	end
 
   	def previous_station
-      @route.previous_station(current_station)
+          @route.previous_station(current_station)
   	end
 
   	def moving_to(station)
-      @current_station&.send(self)
-      @current_station = station
-      @current_station.take(self)
+          @current_station&.send(self)
+          @current_station = station
+          @current_station.take(self)
    	  true
   	end
 end
